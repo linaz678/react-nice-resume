@@ -3,8 +3,7 @@ pipeline {
         docker {
             image 'node:16-alpine' 
             args '-p 3000:3000' 
-        }
-    }
+        }}
 
         parameters {
         booleanParam defaultValue: false, name: 'createS3bucket'
@@ -32,12 +31,13 @@ pipeline {
         //Install denpendencies 
     stages{
         stage('Install dependency')
-        {steps{dir("./")
+        {
             {
              echo "Installing packages"
              sh 'nmp install'}
-             }
+             
         }
+
         stage('test')
         {
             steps{
