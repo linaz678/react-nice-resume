@@ -31,7 +31,7 @@ pipeline {
     stages{
         stage('Install dependency')
         {
-            {
+            steps{
              echo "Installing packages"
              sh 'nmp install'}
              
@@ -43,7 +43,7 @@ pipeline {
              echo "Testing"
              }
         }   
-        
+
         stage('create S3 bucket') {
             when {expression{return params.createS3bucket}}   
             steps {
