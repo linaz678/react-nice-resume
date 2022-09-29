@@ -26,10 +26,11 @@ pipeline {
         //Install denpendencies 
     stages{
         stage('Install dependency')
-        {
-            steps{
+        {steps{dir("./")
+            {
              echo "Installing packages"
              sh 'nmp install'}
+             }
         }
         stage('test')
         {
