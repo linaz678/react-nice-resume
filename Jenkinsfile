@@ -43,6 +43,37 @@ pipeline {
              echo "Testing"
              }
         }   
+        
+        stage('create S3 bucket') {
+            when {expression{return params.createS3bucket}}   
+            steps {
+                withAWS(credentials: AWS_CRED, region: 'ap-southeast-2')
+             {
+                dir('src') {
+                    echo "deploy to S3 "
+                    sh '''
+                    aws s3 mb s3://$S3BucketName --region $AWS_REGION
+                    '''}
+             }
+
+         }
+         
+         }
+
+        stage('upload frontend to  S3 bucket') {
+            when {expression{return params.deloytos3}} 
+            steps {
+                withAWS(credentials: AWS_CRED, region: 'ap-southeast-2')
+             {
+                dir('src') {
+                    echo "deploy to S3 "
+                    sh '''
+                    aws s3 cp index.html s3://$S3BucketName
+                    '''}
+             }
+            }
+         
+         }
 
     }
 }
