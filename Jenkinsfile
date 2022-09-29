@@ -1,5 +1,11 @@
 pipeline {
-    agent any
+     agent {
+        docker {
+            image 'node:16-alpine' 
+            args '-p 3000:3000' 
+        }
+    }
+
         parameters {
         booleanParam defaultValue: false, name: 'createS3bucket'
         booleanParam defaultValue: false, name: 'deloytos3'
