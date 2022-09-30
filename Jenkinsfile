@@ -39,7 +39,7 @@ pipeline {
             steps{
              sh "npm  i --legacy-peer-deps"
              sh "npm run build --legacy-peer-deps"
-             sh 'ls -la ./'
+             sh 'ls -la ./build'
              }
         } 
 
