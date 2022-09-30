@@ -9,7 +9,7 @@ pipeline {
         booleanParam defaultValue: false, name: 'createS3bucket'
         booleanParam defaultValue: false, name: 'deloytos3'
     }
-
+    tools {nodejs "nodejs"}
     environment{
         CI ='true'
         AWS_CRED        = 'AWS_linazhao' //Change to yours
