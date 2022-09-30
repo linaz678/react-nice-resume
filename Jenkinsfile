@@ -9,8 +9,7 @@ pipeline {
      parameters {
         booleanParam defaultValue: false, name: 'createS3bucket'
         booleanParam defaultValue: false, name: 'deloytos3'
-    }
-    tools {nodejs "nodejs"}
+
     environment{
         CI ='true'
         AWS_CRED        = 'AWS_linazhao' //Change to yours
@@ -32,8 +31,9 @@ pipeline {
     stages{
         stage('Install dependency')
         {
-            steps{nodejs('nodejs'){
-             env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+            steps{nodejs('nodejs')
+            {
+             
              echo "Installing packages"
              sh 'nmp install'}}
              
