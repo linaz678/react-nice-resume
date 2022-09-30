@@ -1,9 +1,10 @@
 pipeline {
-     agent {
-        docker {
-            image 'node:16-alpine' 
-            args '-p 3000:3000' 
-        }}
+     agent any
+    //  {
+    //     docker {
+    //         image 'node:16-alpine' 
+    //         args '-p 3000:3000' 
+    //     }}
 
      parameters {
         booleanParam defaultValue: false, name: 'createS3bucket'
@@ -31,9 +32,9 @@ pipeline {
     stages{
         stage('Install dependency')
         {
-            steps{
+            steps{nodejs('nodejs'){
              echo "Installing packages"
-             sh 'nmp install'}
+             sh 'nmp install'}}
              
         }
 
