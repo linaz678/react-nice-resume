@@ -9,6 +9,7 @@ pipeline {
         booleanParam defaultValue: false, name: 'createS3bucket'
         booleanParam defaultValue: false, name: 'deloytos3'
     }
+    tools {nodejs "nodejs"}
 
     environment{
         CI ='true'
@@ -29,6 +30,15 @@ pipeline {
     }
         //Install denpendencies 
     stages{
+
+
+        stage('test')
+        {
+            steps{
+             echo "Testing"
+             }
+        }   
+
         stage('Install dependency')
         {
             steps{
@@ -37,12 +47,15 @@ pipeline {
              
         }
 
-        stage('test')
-        {
-            steps{
-             echo "Testing"
-             }
-        }   
+
+
+
+
+
+
+
+
+
 
         stage('create S3 bucket') {
             when {expression{return params.createS3bucket}}   
