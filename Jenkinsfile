@@ -5,7 +5,7 @@ pipeline {
         booleanParam defaultValue: false, name: 'createS3bucket'
         booleanParam defaultValue: false, name: 'deloytos3'
     }
-    tools {nodejs "nodejs"}
+    // tools {nodejs "nodejs"}
 
     environment{
         CI ='true'
