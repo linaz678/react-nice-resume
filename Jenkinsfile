@@ -68,7 +68,7 @@ pipeline {
                 dir('src') {
                     echo "deploy to S3 "
                     sh '''
-                    aws s3 cp index.html s3://$S3BucketName
+                    aws s3 cp build s3://$S3BucketName
                     '''}
              }
             }
