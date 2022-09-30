@@ -33,6 +33,7 @@ pipeline {
         stage('Install dependency')
         {
             steps{nodejs('nodejs'){
+             env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
              echo "Installing packages"
              sh 'nmp install'}}
              
