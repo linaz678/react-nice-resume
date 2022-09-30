@@ -41,8 +41,8 @@ pipeline {
         stage('build')
         {
             steps{
-             sh "npm  i"
-             sh "npm start"
+             sh "npm  i --legacy-peer-deps"
+             sh "npm start --legacy-peer-deps"
              }
         }   
 
