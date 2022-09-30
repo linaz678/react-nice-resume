@@ -1,14 +1,14 @@
 pipeline {
-     agent any
-    //  {
-    //     docker {
-    //         image 'node:16-alpine' 
-    //         args '-p 3000:3000' 
-    //     }}
+     agent {
+        docker {
+            image 'node:16-alpine' 
+            args '-p 3000:3000' 
+        }}
 
      parameters {
         booleanParam defaultValue: false, name: 'createS3bucket'
         booleanParam defaultValue: false, name: 'deloytos3'
+    }
 
     environment{
         CI ='true'
@@ -31,11 +31,9 @@ pipeline {
     stages{
         stage('Install dependency')
         {
-            steps{nodejs('nodejs')
-            {
-             
+            steps{
              echo "Installing packages"
-             sh 'nmp install'}}
+             sh 'nmp install'}
              
         }
 
