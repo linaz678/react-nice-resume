@@ -28,12 +28,7 @@ pipeline {
     stages{
 
 
-        stage('test')
-        {
-            steps{
-             echo "Testing"
-             }
-        }   
+
 
         stage('Install dependency')
         {
@@ -43,13 +38,13 @@ pipeline {
              
         }
 
-
-
-
-
-
-
-
+        stage('build')
+        {
+            steps{
+             sh "npm  i"
+             sh "npm start"
+             }
+        }   
 
 
 
