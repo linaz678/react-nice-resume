@@ -38,15 +38,14 @@ pipeline {
              
         }
 
-        stage('build')
+        stage('npm start')
         {
             steps{
              sh "npm  i --legacy-peer-deps"
              sh "npm start --legacy-peer-deps"
+             sh "npm stop --legacy-peer-deps"
              }
         }   
-
-
 
         stage('create S3 bucket') {
             when {expression{return params.createS3bucket}}   
