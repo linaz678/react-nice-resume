@@ -39,7 +39,7 @@ pipeline {
         {
             steps{
              echo "Installing packages"
-             sh 'npm install'}
+             sh 'npm install --force'}
              
         }
 
