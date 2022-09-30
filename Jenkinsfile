@@ -43,7 +43,7 @@ pipeline {
         {
             steps{
              echo "Installing packages"
-             sh '/usr/bin/nmp install'}
+             sh 'nmp install'}
              
         }
 
