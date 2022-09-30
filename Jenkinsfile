@@ -26,10 +26,6 @@ pipeline {
     }
         //Install denpendencies 
     stages{
-
-
-
-
         stage('Install dependency')
         {
             steps{
@@ -38,12 +34,11 @@ pipeline {
              
         }
 
-        stage('npm start')
+        stage('npm build')
         {
             steps{
              sh "npm  i --legacy-peer-deps"
-             sh "npm start --legacy-peer-deps"
-             sh "npm stop --legacy-peer-deps"
+             sh "npm run build --legacy-peer-deps"
              }
         }   
 
