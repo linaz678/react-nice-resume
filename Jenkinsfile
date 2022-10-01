@@ -42,6 +42,16 @@ pipeline {
              sh 'ls -la ./build'
              }
         } 
+         stage('Build Docker image') {
+            steps {
+                sh 'docker build -t sampleresume .'
+            }
+        }
+        stage('Run Docker Container') {
+            steps {
+                sh 'docker run -dp 3000:3000 sampleresume'
+            }
+          }
 
         stage('create S3 bucket') {
             when {expression{return params.createS3bucket}}   
