@@ -49,7 +49,7 @@ pipeline {
         }
         stage('Run Docker Container') {
             steps {
-                sh 'docker run -d -p 3000:3000 sampleresume'
+                sh 'docker run -d -p 8000:8000 sampleresume'
             }
           }
 
